@@ -1,0 +1,75 @@
+@startuml
+
+package "vo" #DDDDDD {
+  abstract class HealthData
+}
+
+package "dao.impl" #DDDDDD {
+  class HeightDAOImpl
+  class WeightDAOImpl
+  class StepsDAOImpl
+  class BloodPressureDAOImpl
+  class BloodSugarDAOImpl
+  class BloodOxygenDAOImpl
+  class HeartRateDAOImpl
+}
+
+package "dao.proxy" #DDDDDD {
+  class HealthDataDAOProxy {
+    +addData(int userId, double data): boolean
+    +deleteData(int userId, Date date): boolean
+    +updateData(int userId, Date date): boolean
+    +searchData(int userId, Date date): HealthData
+    +dataTrend(int userId): ArrayList<HealthData>
+  }
+  HeightDAOImpl --* HealthDataDAOProxy
+  WeightDAOImpl --* HealthDataDAOProxy
+  StepsDAOImpl --* HealthDataDAOProxy
+  BloodPressureDAOImpl --* HealthDataDAOProxy
+  BloodSugarDAOImpl --* HealthDataDAOProxy
+  BloodOxygenDAOImpl --* HealthDataDAOProxy
+  HeartRateDAOImpl --* HealthDataDAOProxy
+}
+
+package "dao" #DDDDDD {
+  interface IHealthDataDAO {
+--增、删、改、查、趋势--
+    +addData(int userId, double data): boolean
+    +deleteData(int userId, Date date): boolean
+    +updateData(int userId, Date date): boolean
+    +searchData(int userId, Date date): HealthData
+    +dataTrend(int userId): ArrayList<HealthData>
+  }
+  IHealthDataDAO -- HealthData
+  HealthDataDAOProxy --|> IHealthDataDAO
+}
+
+package "factory" #DDDDDD{
+  class DAOFactory {
+  --静态方法--
+    +getIBloodPressureDAOInstance(): IHealthDataDAO
+    +getIBloodSugarDAOInstance(): IHealthDataDAO
+    +getIBloodOxygenDAOInstance(): IHealthDataDAO
+    +getIHeartRateDAOInstance(): IHealthDataDAO
+    +getIHeightDAOInstance(): IHealthDataDAO
+    +getIWeightDAOInstance(): IHealthDataDAO
+    +getIStepsDAOInstance(): IHealthDataDAO
+  }
+}
+
+package dbc <<Database>>{
+  class DatabaseConnection {
+  --静态方法--
+    +getConnection: Connection
+  }
+  DatabaseConnection --* dao.impl
+  DAOFactory::getIHeightDAOInstance --* HeightDAOImpl
+  DAOFactory::getIWeightDAOInstance --* WeightDAOImpl
+  DAOFactory::getIHeartRateDAOInstance --* HeartRateDAOImpl
+  DAOFactory::getIBloodPressureDAOInstance --* BloodPressureDAOImpl
+  DAOFactory::getIBloodSugarDAOInstance --* BloodSugarDAOImpl
+  DAOFactory::getIBloodOxygenDAOInstance --* BloodOxygenDAOImpl
+  DAOFactory::getIStepsDAOInstance --* StepsDAOImpl
+}
+
+@enduml

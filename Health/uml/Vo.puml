@@ -1,0 +1,65 @@
+@startuml
+package "vo" #DDDDDD {
+  class User
+  class Target
+  abstract class HealthData
+  Target --o User
+  HealthData --o User
+  Height --|> HealthData
+  Weight --|> HealthData
+  Steps --|> HealthData
+  HeartRate --|> HealthData
+  BloodPressure --|> HealthData
+  BloodOxygen --|> HealthData
+  BloodSugar --|> HealthData
+}
+
+abstract class HealthData {
+  userId: int
+  date: Date
+--普通方法--
+  +setId(int id)
+  +getId()
+  +setDate(Date date)
+  +getDate()
+--抽象方法--
+  {abstract} getData()
+  {abstract} setData(double data)
+}
+
+class User {
+  -userId: int
+  -name: String
+  -username: String
+  -birthdate: String
+  -gender: String
+  -bloodtype: String
+  -phone: String
+  -email: String
+  -password: String
+  -avatar: String
+  -registerDate: Date
+--
+  +User()
+--
+  +getter()
+  +setter()
+}
+
+class Target {
+  -targetId: int
+  -username: String
+  -focus: String
+  -way: String
+  -deadline: String
+  -createdAt: Date
+--
+  +Target()
+--
+  +getter()
+  +setter()
+}
+
+Target::username --o User::username
+HealthData::userId --o User::userId
+@enduml

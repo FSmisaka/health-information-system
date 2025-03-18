@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+|#lightblue|View|
+start
+:index.jsp;
+|#lightgreen|用户|
+:登出;
+|#lightyellow|Controller|
+:接收登出信息;
+:清空session中保存的用户信息;
+|View|
+:login.jsp;
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+|#lightgray|Model|
+start
+:常见健康数据;
+|#lightblue|View|
+:index.jsp, 展示常见健康数据;
+|#lightgreen|用户|
+:目标管理-查询目标;
+|#lightyellow|Controller|
+:接收用户id[, 目标id];
+|Model|
+:查找目标;
+|View|
+:展示目标 (默认为最近一次设置的目标);
+|用户|
+:返回;
+|View|
+:index.jsp;
+|用户|
+:目标管理-设置目标;
+:选择健康目标、改善方式、...;
+|Controller|
+:接收用户id, 目标信息;
+|Model|
+:目标信息写入数据库;
+|View|
+:index.jsp;
+@enduml

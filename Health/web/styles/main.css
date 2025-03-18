@@ -1,0 +1,90 @@
+/* 页面整体样式 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* 标题样式 */
+.header {
+    position: relative;
+    background-image: url('../images/header-bg.jpeg'); /* 设置背景图片路径 */
+    background-size: cover; /* 确保图片覆盖整个区域 */
+    background-position: center; /* 居中显示图片 */
+    color: white;
+    padding: 40px;
+    text-align: center;
+    font-size: 24px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* 添加文字阴影，使文字在图片上更清晰 */
+}
+
+/* 导航栏样式 */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: maroon;
+    padding: 10px;
+}
+
+/* 导航按钮基础样式 */
+.navbar button {
+    border: none;
+    padding: 14px 20px;
+    margin: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    border-radius: 5px; /* 让按钮变成圆润形状 */
+    transition: all 0.3s ease; /* 添加动画过渡效果 */
+}
+
+/* 不同按钮的颜色样式 */
+.navbar button:nth-child(1) {
+    background-color: blanchedalmond;
+}
+
+.navbar button:nth-child(2) {
+    background-color: bisque;
+}
+
+.navbar button:nth-child(3) {
+    background-color: cornsilk;
+}
+
+/* 悬停效果：鼠标移到按钮上时变化 */
+.navbar button:hover {
+    transform: scale(1.1); /* 放大按钮 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+}
+
+/* 内容展示区域样式 */
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+iframe {
+    width: 90%;
+    height: 600px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logout-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;  /* 使按钮浮动到右上角 */
+}
+.logout-btn {
+    background-color: brown;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+.logout-btn:hover {
+    background-color: maroon;
+}

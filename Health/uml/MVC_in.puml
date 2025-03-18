@@ -1,0 +1,38 @@
+@startuml
+|#lightblue|View|
+start
+if (session?) is (session未保存用户信息) then
+  :login.jsp;
+  |#lightgreen|用户|
+  if (注册?) is (已注册) then
+    :登录;
+    |#lightyellow|Controller|
+    :接收登录信息;
+    |#lightgray|Model|
+    while (数据库是否匹配登录信息?) is (否)
+      |#lightgreen|用户|
+      :登录;
+      |#lightyellow|Controller|
+      :接收登录信息;
+    endwhile (是)
+    |#lightgray|Model|
+    :匹配成功;
+    |#lightblue|View|
+  else (未注册)
+    |#lightblue|View|
+    :register.jsp;
+    |#lightgreen|用户|
+    :基本信息;
+    :目标信息;
+    |#lightyellow|Controller|
+    :接收注册信息;
+    |#lightgray|Model|
+    :注册信息写入数据库;
+    |#lightblue|View|
+  endif
+endif
+:index.jsp;
+|#lightyellow|Controller|
+|#lightgray|Model|
+
+@enduml

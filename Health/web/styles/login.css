@@ -1,0 +1,68 @@
+/* login.css */
+
+/* 设置页面背景 */
+body {
+    background-color: #f4f6f9;
+    background-image: url('../images/img1.png');
+    background-size: cover; /* 背景图片覆盖整个页面 */
+    background-position: center center; /* 背景图片居中对齐 */
+    background-attachment: fixed; /* 背景固定 */
+    font-family: Arial, sans-serif; /* 设置字体 */
+}
+
+/* 登录容器 */
+.login-container {
+    max-width: 400px; /* 最大宽度 */
+    margin: 50px auto; /* 居中对齐 */
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* 半透明背景 */
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 阴影 */
+}
+
+/* 登录标题 */
+.login-container h2 {
+    text-align: center; /* 居中对齐 */
+    margin-bottom: 30px;
+    color: #007bff; /* 标题颜色 */
+}
+
+/* 表单组标签 */
+.login-container .form-group label {
+    font-weight: bold; /* 加粗标签 */
+}
+
+/* 登录按钮 */
+.login-container .btn-primary {
+    width: 100%; /* 按钮宽度填满容器 */
+}
+
+/* 错误消息提示 */
+.login-container .error-message {
+    color: #dc3545; /* 错误消息颜色 */
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* 注册链接 */
+.login-container .link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-container .link a {
+    color: #007bff; /* 链接颜色 */
+    text-decoration: none;
+}
+
+.login-container .link a:hover {
+    text-decoration: underline; /* 悬停时下划线 */
+}
+
+/* 响应式设计：小屏幕适配 */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px; /* 减小内边距 */
+        width: 90%; /* 宽度调整 */
+    }
+}

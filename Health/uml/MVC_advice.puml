@@ -1,0 +1,37 @@
+@startuml
+|#lightgray|Model|
+start
+:常见健康数据;
+|#lightblue|View|
+:index.jsp, 展示常见健康数据;
+|#lightgreen|用户|
+:建议管理-获取建议;
+|#lightyellow|Controller|
+:接收用户id;
+|Model|
+:获取用户的目标信息;
+|Controller|
+:根据目标信息, 生成建议;
+|View|
+:展示建议;
+|用户|
+:返回;
+|View|
+:index.jsp;
+|用户|
+:建议管理-个性化建议;
+|View|
+:chat.jsp;
+|用户|
+:选择AI模型;
+:在聊天框输入个性化问题;
+|Controller|
+:接收模型选择, 问题;
+|Model|
+:调用对应AI模型的API, 生成个性化建议;
+|View|
+:展示建议;
+|用户|
+:返回;
+
+@enduml

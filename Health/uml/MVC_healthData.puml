@@ -1,0 +1,28 @@
+@startuml
+
+|#lightgray|Model|
+start
+:常见健康数据;
+|#lightblue|View|
+:index.jsp, 展示常见健康数据;
+|#lightgreen|用户|
+:健康数据;
+|View|
+:healthData.jsp;
+|用户|
+:选择具体健康数据;
+|Model|
+:从数据库获取近期健康数据;
+|View|
+:具体健康数据.jsp;
+:健康数据折线图\n增/删/改/查 按钮;
+|用户|
+:增/删/改/查;
+|#lightyellow|Controller|
+:接收用户id, 健康数据信息;
+|Model|
+:从数据库获取指定信息\n健康信息写入数据库;
+|View|
+:heathData.jsp\n提示用户操作是否成功;
+
+@enduml

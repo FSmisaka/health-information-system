@@ -1,0 +1,43 @@
+@startuml
+package "controller" #DDDDDD {
+  package healthData <<Frame>> {
+    class AddHealthDataServlet <HttpServlet> {
+      +doPost()
+    }
+    class DeleteHealthDataServlet <HttpServlet> {
+      +doPost()
+    }
+    class UpdateHealthDataServlet <HttpServlet> {
+      +doPost()
+    }
+    class SearchHealthDataServlet <HttpServlet> {
+      +doPost()
+    }
+  }
+  package inAndOut <<Frame>> {
+    class LoginServlet <HttpServlet> {
+      +doPost()
+    }
+    class LogoutServlet <HttpServlet> {
+      +doPost()
+    }
+    class RegisterServlet <HttpServlet> {
+      +doPost()
+    }
+  }
+  package advice <<Frame>> {
+    class GetAdviceServlet <HttpServlet> {
+      +doPost()
+    }
+    class AIServlet <HttpServlet> {
+      +doPost()
+    }
+  }
+}
+package dbc <<Database>> {
+  class DatabaseConnection
+  DatabaseConnection --* inAndOut
+  DatabaseConnection --* healthData
+  DatabaseConnection --* advice
+}
+@enduml
